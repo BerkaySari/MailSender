@@ -15,12 +15,6 @@ namespace Data.DBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // todo: types must not be hard coded 
-            //modelBuilder.Entity<User>()
-            //    .ToTable("Users")
-            //    .HasDiscriminator<string>("UserType")
-            //    .HasValue<Seller>("Seller")
-            //    .HasValue<Customer>("Customer");
         }
 
         public void useMssql(DbContextOptionsBuilder optionsBuilder)
@@ -38,6 +32,8 @@ namespace Data.DBContext
             optionsBuilder.UseMySql(cn);
         }
         
-        public DbSet<MailInfo> MailInfos { get; set; }
+        public DbSet<MailFrom> MailFroms { get; set; }
+        public DbSet<MailFrom> MailTos { get; set; }
+        public DbSet<MailFrom> SystemUsers { get; set; }
     }
 }
