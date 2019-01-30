@@ -10,5 +10,6 @@ namespace Model.Models
         public string ToSurname { get; set; } // optional param
         public string Subject { get; set; }
         public string Message { get; set; }
+        public MailFrom MailFrom { get; set; }
     }
 }

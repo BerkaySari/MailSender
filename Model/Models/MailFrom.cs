@@ -9,6 +9,6 @@ namespace Model.Models
         public string SenderPassword { get; set; } //todo: save password with sha1 + md5
         public string SenderName { get; set; } // optional param
         public string SenderSurname { get; set; } // optional param
-        public SystemUser SystemUser { get; set; }
+        public MailRepository SystemUser { get; set; }
     }
 }

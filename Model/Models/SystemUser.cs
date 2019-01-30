@@ -3,7 +3,7 @@ using System;
 
 namespace Model.Models
 {
-    public class SystemUser : Entity<Guid>
+    public class MailRepository : Entity<Guid>
     {
         public string Name { get; set; }
         public string Surname { get; set; }
