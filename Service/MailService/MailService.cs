@@ -1,7 +1,10 @@
-﻿using Dto.Mail;
+﻿using System.Runtime.CompilerServices;
+using Dto.Mail;
 using Model;
 using Model.Models;
 using Repository.MailRepository;
+using Helper;
+using System.Threading.Tasks;
 
 namespace Service.MailService
 {
@@ -30,6 +33,12 @@ namespace Service.MailService
             };
 
             _mailRepository.Add(mailTo);
+        }
+
+        public async Task SendMailAsync(MailDto mail)
+        {
+            await Helper.Mail.SendMail.SendMailAsync(mail);
+            //Add(mail);
         }
     }
 }
