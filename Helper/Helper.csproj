@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="S22.Imap" Version="3.6.0" />
+    <PackageReference Include="S22.Pop3" Version="1.2.4694.18487" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Dto\Dto.csproj" />
   </ItemGroup>
 

@@ -18,10 +18,11 @@ namespace MailSenderExample.Controllers
         }
 
 
+        //https://localhost:44368/api/MailSender/SendMail
         [HttpGet("[action]")]
         //[ProducesResponseType(200, Type = typeof(IEnumerable<MailDto>))]
-        [ProducesResponseType(404)]
-        public IActionResult SendMailController(MailDto mailDto)
+        //[ProducesResponseType(404)]
+        public IActionResult SendMail(MailDto mailDto)
         {
             try
             {
