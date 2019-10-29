@@ -40,8 +40,16 @@ namespace MailSenderExample
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    x => x.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
+            
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddMvc().AddRazorPagesOptions(o =>
             {
@@ -87,9 +95,15 @@ namespace MailSenderExample
                 app.UseHsts();
             }
 
+
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
+            app.UseCors("CorsPolicy");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            //app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
 
             app.UseMvc(routes =>
             {
@@ -97,6 +111,7 @@ namespace MailSenderExample
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Helper.Mail
 
 
 
-        public List<MailMessage> SearchMessages(MailObj mObj, string searchFrom, string searchSubject, string searchText, string searchKeyword)
+        public static List<MailMessage> SearchMessages(MailObj mObj, string searchFrom, string searchSubject, string searchText, string searchKeyword)
         {
             using (ImapClient Client = new ImapClient(mObj.ServerAddress, mObj.Port, mObj.MailAddress, mObj.MailAddressPassword, AuthMethod.Login, true))
             {

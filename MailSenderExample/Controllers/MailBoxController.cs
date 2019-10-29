@@ -1,7 +1,10 @@
 ﻿using Dto.Mail;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Service.MailBoxService;
 using System;
+using System.IO;
+using System.Text;
 
 namespace MailSenderExample.Controllers
 {
@@ -16,12 +19,14 @@ namespace MailSenderExample.Controllers
 
         
         //https://localhost:44368/api/MailBox/GetAllMails
-        [HttpGet("[action]")]
-        public IActionResult GetAllMails(string serverAddress, int port, string mailAddress, string mailAddressPassword)
+        [HttpPost("[action]")]
+        [ProducesResponseType(200, Type = typeof(bool))]
+        //[HttpGet("[action]")]
+        public IActionResult GetAllMails([FromBody]MailCredential pd)
         {
             try
             {
-                return Ok(_IMailBoxService.GetAllMessages(serverAddress, port, mailAddress, mailAddressPassword));
+                return Ok(_IMailBoxService.GetAllMessages(pd.ServerAddress, pd.Port, pd.MailAddress, pd.MailAddressPassword));
             }
             catch (Exception ex)
             {

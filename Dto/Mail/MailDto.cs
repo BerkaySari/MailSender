@@ -15,4 +15,16 @@ namespace Dto.Mail
         [BindProperty]
         public string SenderPassword { get; set; }
     }
+
+    public class MailCredential
+    {
+        [BindProperty]
+        public string ServerAddress { get; set; }
+        [BindProperty]
+        public int Port { get; set; }
+        [BindProperty]
+        public string MailAddress { get; set; }
+        [BindProperty]
+        public string MailAddressPassword { get; set; }
+    }
 }
