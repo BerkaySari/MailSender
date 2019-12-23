@@ -1,4 +1,5 @@
 ﻿using Dto.Mail;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Service.MailBoxService;
@@ -8,6 +9,7 @@ using System.Text;
 
 namespace MailSenderExample.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class MailBoxController : Controller
     {
